@@ -43,3 +43,24 @@ myQueue<T>::myQueue(int ss):Queue<T>(ss)
 {
 
 }
+
+template <class T>
+void myQueue<T>:: enqueue(T value)
+{
+    if(!isFull())
+    {
+        Queue<T>::arr[Queue<T>::currentSize] = value;
+        Queue<T>::currentSize++;
+    }
+    else
+        cout<<"Queue is already Full!!"<<endl;
+}
+
+template <class T>
+T myQueue<T>:: dequeue()
+{
+    if(isEmpty())
+    {
+        
+    }
+}
