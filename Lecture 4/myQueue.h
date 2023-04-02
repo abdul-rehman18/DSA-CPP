@@ -41,7 +41,7 @@ void myQueue<T>::display()
 
 
 	for (int i = front; i < rear; i++)
-		cout << i%Queue<T>::maxSize << ". " << Queue<T>::arr[i] << endl;
+		cout << i%Queue<T>::maxSize << ". " << Queue<T>::arr[i%Queue<T>::maxSize] << endl;
 }
 
 template <class T>
