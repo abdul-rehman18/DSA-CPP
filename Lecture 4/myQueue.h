@@ -47,6 +47,40 @@ void myQueue<T>::display()
 template <class T>
 myQueue<T>::myQueue(int ss):Queue<T>(ss)
 {
+    front = 0;
+	rear = 0;
+}
 
+template <class T>
+void myQueue<T>::enqueue(T value)
+{
+	if (!isFull())
+	{
+		Queue<T>::currentSize++;
+
+		Queue<T>::arr[rear % Queue<T>::maxSize] = value;
+		rear++;
+	}
+
+	else
+		cout << "Queue is already FULL" << endl;
+}
+
+template <class T>
+T myQueue<T>::dequeue()
+{
+	if (isEmpty())
+	{
+		cout << "Queue is Empty, returning ZERO" << endl;
+		return 0;
+	}
+
+	Queue<T>::currentSize--;
+	
+	T rv = Queue<T>::arr[front % Queue<T>::maxSize];
+	front++;
+	return rv;
+
+	
 }
 
