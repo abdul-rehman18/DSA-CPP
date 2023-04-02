@@ -27,3 +27,13 @@ bool myQueue<T>::isEmpty()
         return true;
     return false;
 }
+
+template <class T>
+void myQueue<T>::display()
+{
+	cout << "Maximum Size: " << Queue<T>::maxSize << endl;
+	cout << "Current Size: " << Queue<T>::currentSize << endl;
+
+	for (int i = 0; i < Queue<T>::currentSize; i++)
+		cout << i << ". " << Queue<T>::arr[i] << endl;
+}
