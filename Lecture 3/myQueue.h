@@ -12,18 +12,19 @@ public:
 	void display();
 };
 
-template<class T>
-bool myQueue<T>::isFull()
+template <class T>
+bool myQueue<T>::isFull() 
 {
-    if(Queue<T>::maxSize == Queue<T>currentSize)
-        return true;
-    return false;
+	if (Queue<T>::maxSize == Queue<T>::currentSize)
+		return true;
+
+	return false;
 }
 
 template<class T>
 bool myQueue<T>::isEmpty()
 {
-    if(Queue<T>currentSize == 0)
+    if(Queue<T>::currentSize == 0)
         return true;
     return false;
 }
