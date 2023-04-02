@@ -37,3 +37,9 @@ void myQueue<T>::display()
 	for (int i = 0; i < Queue<T>::currentSize; i++)
 		cout << i << ". " << Queue<T>::arr[i] << endl;
 }
+
+template <class T>
+myQueue<T>::myQueue(int ss):Queue<T>(ss)
+{
+
+}
