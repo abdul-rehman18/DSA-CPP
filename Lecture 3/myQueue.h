@@ -20,3 +20,10 @@ bool myQueue<T>::isFull()
     return false;
 }
 
+template<class T>
+bool myQueue<T>::isEmpty()
+{
+    if(Queue<T>currentSize == 0)
+        return true;
+    return false;
+}
