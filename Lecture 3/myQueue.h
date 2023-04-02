@@ -61,6 +61,13 @@ T myQueue<T>:: dequeue()
 {
     if(isEmpty())
     {
-        
+        cout << "Queue is Empty, returning ZERO" << endl;
+		return 0;
     }
+    T rv = Queue<T>::arr[0];
+    Queue<T>::currentSize--;
+
+    for(int i=0; i< Queue<T>::currentSize; i++)
+        Queue<T>::arr[i] = Queue<T>::arr[i+1];
+    return rv;
 }
