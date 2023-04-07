@@ -48,3 +48,15 @@ void myLinkedList::insertAtHead(int value)
     }
 }
 
+void myLinkedList::display()
+{
+    Node* temp = head;
+    while (1)
+    {
+        if(temp == nullptr)
+            break;
+        cout<< temp->data <<endl;
+        temp = temp->next;
+    }
+    
+}
