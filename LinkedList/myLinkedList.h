@@ -9,4 +9,23 @@ public:
     int deleteFromTail();
 };
 
+void myLinkedList::insertAtTail(int value)
+{
+    Node* newNode;
+    newNode = new Node;
+    newNode->data = value;
+    newNode->next = nullptr;
+
+    if(head == nullptr && tail == nullptr)
+    {
+        head = newNode;
+        tail = newNode;
+    }
+
+    else
+    {
+        tail->next = newNode;
+        tail = newNode;
+    }
+}
 
