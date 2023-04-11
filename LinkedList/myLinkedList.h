@@ -7,6 +7,7 @@ public:
     void insertAtHead(int);
     void display();
     int deleteFromTail();
+    int deleteFromHead();
 };
 
 void myLinkedList::insertAtTail(int value)
@@ -93,6 +94,31 @@ int myLinkedList::deleteFromTail()
         temp->next = nullptr;
         //or
         //tail->next = nullptr;
+        return rv;
+    }
+}
+
+int myLinkedList::deleteFromHead()
+{
+    if (head == nullptr && tail == nullptr)
+    {
+        cout << "LinkedList is empty...." << endl;
+        return NULL;
+    }
+    else if (head == tail)
+    {
+        int rv = head->data;
+        delete head;
+        head = nullptr;
+        tail = nullptr;
+        return rv;
+    }
+    else
+    {
+        Node* temp = head;
+        head = head->next;
+        delete temp;
+        temp = nullptr;
         return rv;
     }
 }
