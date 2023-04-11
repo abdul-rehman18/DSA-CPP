@@ -1,8 +1,5 @@
 #include"MyLinkedList.h"
 
-#include <iostream>
-using namespace std;
-
 class Stack
 {
 protected:
