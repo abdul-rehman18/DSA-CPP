@@ -10,7 +10,6 @@ protected:
 public:
 	virtual void enqueue(int) = 0;
 	virtual int dequeue() = 0;
-	virtual bool isFull() = 0;
 	virtual bool isEmpty() = 0;
 	Queue(int);
 };

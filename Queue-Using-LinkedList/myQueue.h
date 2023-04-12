@@ -7,7 +7,6 @@ public:
 	int dequeue();
 	myQueue(int ss);
 	bool isEmpty();
-	bool isFull();
 	void display();
 };
 
