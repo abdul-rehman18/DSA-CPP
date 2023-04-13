@@ -1,7 +1,7 @@
 #include "myQueue.h"
 int main()
 {
-	myQueue<int> q(5);
+	myQueue q(5);
 	q.enqueue(88);
 	q.enqueue(-3);
 	q.enqueue(420);
