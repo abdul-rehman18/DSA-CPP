@@ -176,3 +176,38 @@ bool myLinkedList::deleteValue(int value)
     }
 }
 
+void myLinkedList::insertSorted(int value)
+{
+    if(head == nullptr && tail == nullptr)
+    {
+        Node* newNode;
+        newNode = new Node;
+        newNode->data = value;
+        newNode->next = nullptr;
+        head = newNode;
+        tail = newNode;
+    }
+    else if(value <= head->data)
+        insertAtHead(value);
+    else if(value >= tail->data)
+        insertAtTail(value);
+    else
+    {
+        Node* newNode;
+        newNode = new Node;
+        newNode->data = value;
+        newNode->next = nullptr;
+        Node* t1 = head;
+        while (1)
+        {
+            if(value > t1->data && value <= t1->next->data)
+            {
+                newNode->next = t1->next;
+                t1->next = newNode;
+            }
+            else
+                t1 = t1->next;
+        }
+           
+    }
+}
