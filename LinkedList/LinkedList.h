@@ -15,7 +15,7 @@ public:
     virtual void display()=0;
     virtual int deleteFromTail()=0;
     virtual int deleteFromHead()=0;
-    virtual int deleteValue()=0;
+    virtual bool deleteValue(int)=0;
 };
 
 LinkedList::LinkedList()

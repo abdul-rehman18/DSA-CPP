@@ -9,7 +9,7 @@ public:
     void display();
     int deleteFromTail();
     int deleteFromHead();
-    int deleteValue();
+    bool deleteValue(int);
 };
 
 void myLinkedList::insertAtTail(int value)
@@ -124,3 +124,55 @@ int myLinkedList::deleteFromHead()
         return rv;
     }
 }
+
+bool myLinkedList::deleteValue(int value)
+{
+    if (head == nullptr && tail == nullptr)
+    {
+        cout << "LinkedList is empty...." << endl;
+        return false;
+    }
+    else if (head == tail)
+    {
+        if(value == head->data)
+        {
+            delete head;
+            head = nullptr;
+            tail = nullptr;
+            return true;
+        }
+        return false;
+    }
+    else
+    {
+        if(value == head->data)
+        {
+            deleteFromHead();
+            return true;
+        }
+        else if(value == tail->data)
+        {
+            deleteFromTail();
+            return true;
+        }
+        else
+        {
+            Node* t1 = head;
+            while(1)
+            {
+                if(value == t1->next->data)
+                    break;
+                else
+                    t1 = t1->next;
+            }
+            Node* t2 = t1->next;
+            t1->next = t1->next->next;
+            //or
+            //t1->next = t2->next;
+            delete t2;
+            t2 = nullptr;
+            return true;
+        }
+    }
+}
+
