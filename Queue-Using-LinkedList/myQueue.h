@@ -2,6 +2,8 @@
 
 class myQueue :public Queue
 {
+private:
+    myLinkedList que;
 public:
 	void enqueue(int);
 	int dequeue();
@@ -33,7 +35,7 @@ myQueue::myQueue(int ss):Queue(ss)
 
 void myQueue:: enqueue(int value)
 {
-    
+    que.insertAtTail(value);
 }
 
 int myQueue:: dequeue()
@@ -43,10 +45,6 @@ int myQueue:: dequeue()
         cout << "Queue is Empty, returning ZERO" << endl;
 		return 0;
     }
-    T rv = Queue::arr[0];
-    Queue::currentSize--;
-
-    for(int i=0; i< Queue::currentSize; i++)
-        Queue::arr[i] = Queue::arr[i+1];
-    return rv;
+    que.deleteFromHead();
+    //incase of delete from tail, there will be insert at head in enqueue function
 }
