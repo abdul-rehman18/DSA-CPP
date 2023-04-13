@@ -2,12 +2,14 @@
 
 class myLinkedList:public LinkedList
 {
-public:
     void insertAtTail(int);
     void insertAtHead(int);
+public:
+    void insertSorted(int);
     void display();
     int deleteFromTail();
     int deleteFromHead();
+    int deleteValue();
 };
 
 void myLinkedList::insertAtTail(int value)
