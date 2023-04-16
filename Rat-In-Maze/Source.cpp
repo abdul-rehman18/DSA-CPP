@@ -70,7 +70,6 @@ int main()
 				obj.push('R');
 				j++;
 				visited[k][j] = 1;
-				//continue;
 			}
 			else if (k + 1<size  && maze[k + 1][j] == 1 && visited[k + 1][j] != 1)
 			{
@@ -78,7 +77,6 @@ int main()
 				obj.push('D');
 				k++;
 				visited[k][j] = 1;
-				//continue;
 			}
 			else if ( j-1>=0 && maze[k][j - 1] == 1 && visited[k][j - 1] != 1 )
 			{
@@ -93,7 +91,6 @@ int main()
 				obj.push('U');
 				k--;
 				visited[k][j] = 1;
-				//continue;
 
 			}
 			
@@ -144,7 +141,6 @@ int main()
 		obj.display();
 		cout<<"----------------"<<endl;
 	}
-	//cout<<"---------------------------------------------------------------------"<<endl;
 	cout<<endl;
 
 	
@@ -182,7 +178,6 @@ int main()
 		fout << "Path Not Found...." << endl;
 		//cout << "Not Found" << endl;
 	}
-	//obj.display();
 	fout.close();
 	delete visited;
 	delete maze;
