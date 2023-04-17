@@ -17,6 +17,5 @@ int main()
     s1.post(arr);
     cout<<endl;
     
-    //s1.display();
     return 0;
 }
