@@ -60,5 +60,10 @@ int myStack::pop()
 
 int myStack::top()
 {
-    
+    if (isEmpty())
+	{
+		cout << "Stack is Empty, returning ZERO" << endl;
+		return 0;
+	}
+	return Stack::arr[Stack::currentSize-1];
 }

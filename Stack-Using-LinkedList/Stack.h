@@ -14,9 +14,9 @@ public:
 	Stack(int);
 };
 
-Stack<T>::Stack(int s)
+Stack::Stack(int s)
 {
-	arr = new T[s];
+	arr = new int[s];
 	maxSize = s;
 	currentSize = 0;
 }
