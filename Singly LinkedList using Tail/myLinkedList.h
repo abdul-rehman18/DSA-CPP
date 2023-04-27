@@ -72,52 +72,54 @@ void myLinkedList::display()
 
 int myLinkedList::deleteFromTail()
 {
-    if(head == nullptr)
+    if(tail == nullptr)
     {
         cout << "LinkedList is empty...." << endl;
         return NULL;
     }
-    else if(head->next == nullptr)
+    else if(tail->next == tail)
     {
-        int rv = head->data;
-        delete head;
-        head =  nullptr;
+        int rv = tail->data;
+        delete tail;
+        tail =  nullptr;
         return rv;
     }
     else
     {
-        Node* temp = head;
+        Node* temp = tail->next;
         while (1)
         {
-            if(temp->next->next == nullptr)
+            if(temp->next== tail)
                 break;
             temp = temp->next;
         }
-        int rv = temp->next->data;
-        delete temp->next;
-        temp->next = nullptr;
+        int rv = tail->data;
+        temp->next = tail->next;
+        delete tail;
+        tail = temp;
         return rv;
     }
 }
 
 int myLinkedList::deleteFromHead()
 {
-    if (head == nullptr)
+    if (tail == nullptr)
     {
         cout << "LinkedList is empty...." << endl;
         return NULL;
     }
-    else if (head->next == nullptr)
+    else if (tail->next == tail)
     {
-        int rv = head->data;
-        delete head;
-        head = nullptr;
+        int rv = tail->data;
+        delete tail;
+        tail = nullptr;
         return rv;
     }
     else
     {
-        Node* temp = head;
-        head = head->next;
+        int rv = tail->next->data;
+        Node* temp = tail->next;
+        tail->next = tail->next->next;
         delete temp;
         temp = nullptr;
         return rv;
