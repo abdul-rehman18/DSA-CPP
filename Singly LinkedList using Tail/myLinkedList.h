@@ -40,14 +40,15 @@ void myLinkedList::insertAtHead(int value)
     newNode->data = value;
     newNode->next = nullptr;
 
-    if(head == nullptr)
+    if(tail == nullptr)
     {
-        head = newNode;
+        tail = newNode;
+        tail->next = tail;
     }
     else
     {
-        newNode->next = head;
-        head = newNode;
+        newNode->next = tail->next;
+        tail->next = newNode;
     }
 }
 
