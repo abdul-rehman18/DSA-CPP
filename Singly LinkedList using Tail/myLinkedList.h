@@ -54,13 +54,18 @@ void myLinkedList::insertAtHead(int value)
 
 void myLinkedList::display()
 {
-    Node* temp = head;
-    while (1)
+    if (tail == nullptr)
+        cout<<"LL is empty"<<endl;
+    else
     {
-        if(temp == nullptr)
-            break;
-        cout<< temp->data <<endl;
-        temp = temp->next;
+        Node* temp = tail->next;
+        while (1)
+        {
+            cout<< temp->data <<endl;
+            temp = temp->next;
+            if(temp == tail->next)
+                break;
+        }
     }
     
 }
