@@ -128,38 +128,43 @@ int myLinkedList::deleteFromHead()
 
 bool myLinkedList::deleteValue(int value)
 {
-    if (head == nullptr)
+    if (tail == nullptr)
     {
         cout << "LinkedList is empty...." << endl;
         return false;
     }
-    else if (head->next == nullptr)
+    else if (tail->next == tail)
     {
-        if(value == head->data)
+        if(value == tail->next->data)
         {
-            delete head;
-            head = nullptr;
+            delete tail;
+            tail = nullptr;
             return true;
         }
         return false;
     }
     else
     {
-        if(value == head->data)
+        if(value == tail->next->data)
         {
             deleteFromHead();
             return true;
         }
+        else if (value == tail->data)
+        {
+            deleteFromTail();
+            return true;
+        }
         else
         {
-            Node* t1 = head;
+            Node* t1 = tail->next->data;
             while(1)
             {
                 if(value == t1->next->data)
                     break;
                 else
                     t1 = t1->next;
-                if (t1->next == nullptr)
+                if (t1 == tail)
                     return false;
             }
             Node* t2 = t1->next;
@@ -175,23 +180,27 @@ bool myLinkedList::deleteValue(int value)
 
 void myLinkedList::insertSorted(int value)
 {
-    if(head == nullptr)
+    if(tail == nullptr)
     {
         Node* newNode;
         newNode = new Node;
         newNode->data = value;
         newNode->next = nullptr;
-        head = newNode;
+        tail = newNode;
+        tail->next = tail;
     }
-    else if(value <= head->data)
+    else if(value <= tail->next->data)
         insertAtHead(value);
+
+    else if(value >= tail->data)
+        insertAtTail(value);
     else
     {
         Node* newNode;
         newNode = new Node;
         newNode->data = value;
         newNode->next = nullptr;
-        Node* t1 = head;
+        Node* t1 = tail->next;
         while (1)
         {
             if(value > t1->data && value <= t1->next->data)
@@ -202,11 +211,6 @@ void myLinkedList::insertSorted(int value)
             }
             else
                 t1 = t1->next;
-            if (t1->next == nullptr)
-            {
-                t1->next = newNode;
-                break;
-            }
         }
            
     }
