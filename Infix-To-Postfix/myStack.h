@@ -159,4 +159,5 @@ void myStack<T>::post(char* value)
 	}
 	cout<<endl;
 	cout << "Result: " << n << endl;
+	
 }
