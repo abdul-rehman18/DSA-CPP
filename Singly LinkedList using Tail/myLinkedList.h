@@ -2,9 +2,9 @@
 
 class myLinkedList:public LinkedList
 {
+public:
     void insertAtTail(int);
     void insertAtHead(int);
-public:
     void insertSorted(int);
     void display();
     int deleteFromTail();
@@ -157,7 +157,7 @@ bool myLinkedList::deleteValue(int value)
         }
         else
         {
-            Node* t1 = tail->next->data;
+            Node* t1 = tail->next;
             while(1)
             {
                 if(value == t1->next->data)
