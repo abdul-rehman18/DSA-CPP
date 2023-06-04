@@ -1,5 +1,6 @@
 #include"Node.h"
 #include<iostream>
+using namespace std;
 class LinkedList{
 protected:
   Node* head;
